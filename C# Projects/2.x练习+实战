@@ -1,0 +1,77 @@
+/*2.12.4*/
+//#include <stdio.h>
+//void jolly(void);           //声明jolly函数
+//void deny(void);            //声明deny函数
+//int main(void) {
+//    jolly();                    //调用jolly函数
+//    jolly();
+//    jolly();
+//    deny();                      //调用deny函数
+//    return 0;
+//}
+//void jolly(void) {             /*函数定义开始*/
+//    printf("For he's a jolly good fellow!\n"); }
+//void deny(void) {              /*函数定义开始*/
+//    printf("Which nobody can deny!\n"); }
+
+
+/*2.12.5*/
+//#include <stdio.h>
+//void br(void);           //声明br函数
+//void ic(void);           //声明ic函数
+//int main()
+//{
+//    br();                //调用br函数
+//    printf(",");
+//    ic();             //调用ic函数
+//    printf("\n");
+//    printf("India,China\n");
+//    printf("Brazil,Russia");
+//}
+//void br(void){             /*定义br函数*/
+//    printf("Brazil,Russia");
+//}
+//void ic(void){            /*定义ic函数*/
+//    printf("India,China");
+//}
+
+
+/*2.12.7*/
+//#include <stdio.h>
+//void smile(void);     //声明smile函数
+//
+//int main() {
+//
+//    smile(),smile(),smile();        //调用smile函数
+//    printf("\n");
+//    smile(),smile();
+//    printf("\n");
+//    smile();
+//}
+//
+//void smile(void){              /*定义smile函数*/
+//    printf("Smile!");
+//}
+
+
+
+/*2.12.8*/
+//#include <stdio.h>
+//void two(void);           //声明two函数
+//void one_three(void);      //声明one_three函数
+//int main(){
+//    printf("starting now:\n");
+//    one_three();             //调用one_three函数
+//    two();                   //调用two函数
+//    printf("done!");
+//
+//
+//}
+//void two(void){             /*定义two函数*/
+//    printf("three\n");
+//
+//}
+//void one_three(void){           /*定义one_three函数*/
+//    printf("one\ntwo\n");
+//}
+
