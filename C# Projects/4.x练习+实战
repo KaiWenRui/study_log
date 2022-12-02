@@ -1,0 +1,288 @@
+//const限定符
+//#include "stdio.h"
+//const int member = 32999999;     //member在程序中不可更改
+//int main(){
+//    printf("%d",member);   //member在程序中不可更改且输出2位左对齐
+//    return 0;
+//}
+
+
+//%10d使用方式，字符串类型
+//#include "stdio.h"
+//int main(){
+//    int x = 101010101010;
+//    printf("%-10d\n",101010);     //左对齐以十位为标准，不足补空格
+//    printf("%10d\n",101010);      //右对齐以十位为标准，不足补空格
+//    printf("%-10d\n",x);
+//    return 0;
+//}
+
+
+//char类型和null字符(\0)
+//#include "stdio.h"
+//#define press "you are my girlfriend."    //提前声明press字符串
+//int main(){
+//    char name[20];           //定义name字符串20位
+//    printf("test one of null character \n \0 null character other");    //null 字符后的无法输出，停止字符
+//    scanf("%s",name);
+//    printf("%s %s",name,press);
+//    return 0;
+//}
+
+//sizeof函数和strlen的使用
+//#include "stdio.h"
+//#include "string.h"
+//int main(){
+//    int size,letter;
+//    char name[10];
+//    scanf("%s",name);            //scanf函数在遇到第一个空白就不再读取输入
+//    size = sizeof(name);          //计算name的大小bytes
+//    letter = strlen(name);     //统计name长度
+//    printf("name的内容是%s\n",name);
+//    printf("%d\n",size);
+//    printf("name的长度为%d",letter);
+//    return 0;
+//
+//}
+
+
+//%zd和%lu或%u
+//#include "stdio.h"
+//int main(){
+//    char ch[10] = "woaini";
+//    printf("%u",ch);
+//
+//
+//    return 0;
+//}
+
+
+//使用limit.h和float头文件中定义的明示常量
+//#include "stdio.h"
+//#include "limits.h"
+//#include "float.h"
+//int main(){
+//
+//    printf("biggest int:%d\n",INT_MAX);
+//    printf("unsigned long max:%lu\n", ULLONG_MAX);
+//    printf("float FLT_MANT_DIG ：%f\n",FLT_MANT_DIG);
+//    return 0;
+//}
+
+
+//4.12 不匹配的浮点类型转换
+//#include <stdio.h>
+//int main(void){
+//    float n1 = 3.0f;
+//    double n2 = 3.0;
+//    long n3 = 2000000000;
+//    long n4 = 1234567890;
+//    printf("%.1e %.1e %.1e %.1e\n",n1,n2,n3,n4);
+//    printf("%ld %ld\n",n3,n4);
+//    printf("%ld %ld %ld %ld\n",n1,n2,n3,n4);       //在输出n1,n2,n3,n4时，由于%ld输出四字节，而n1,n2均为8字节，则只会输出n1,n2
+//
+//    return 0;
+//}
+
+
+//printf()的返回值
+//#include <stdio.h>
+//int main(){
+//    int bph2o = 212;
+//    int rv;
+//
+//    rv = printf("%d test.\n",bph2o);      //printf的返回值用于计算一个字符串内（""内）的字符数，不算转换说明的值
+//    printf("%d\n",rv);
+//    return 0;
+//}
+
+
+//4.7scanf()转换说明的修饰符
+//#include "stdio.h"
+//int main(){
+//    int x,y,z;
+//    scanf("%d",&x);
+//    printf("%u",x);
+//}
+
+
+//#include <stdio.h>
+//
+//int main(){
+//
+//    float x,y,z;
+//
+//    printf("请输入三角形三边:");
+//
+//    scanf("%f%f%f",&x,&y,&z);
+//    if (x+y>z && x+z>y && y+z>x)
+//        printf("可以构成\n");
+//    else
+//        printf("无法构成\n");
+//    printf("三角形的最长边:");
+//    if (x > y > z || x > z > y) { printf("%f", x); }
+//    else if (y > x > z || y > z > x) { printf("%f", y); }
+//    else if (z > x > y || z > y > x) { printf("%f", z); }
+//    return 0;
+//}
+
+
+//printf和scanf的转换说明以及转换说明中的修饰符(添加在%和转换说明之间的)
+//#include "stdio.h"
+//#include "stdint.h"
+//int main(){
+//    char x='c',y[15]="xiangdanghao";
+//    intmax_t o=1100;
+//    uintmax_t i=11;
+//    int a=3,b=-9;
+//    float c=12.0f,d=15.0f;
+//    double f=18.3000,g=21.3000;
+//    long double p = 24.300000;
+//    printf("以s输出字符串：%s\n",y);
+//    printf("浮点数打印为十六进制或p记数法%a(小a)\n浮点数打印为十六进制或p记数法%A(大A)\n",c,c);     //%a/A适用于浮点数，十六进制和p计数法
+//    printf("打印单个字符%c\n",x);     //%c适用于打印单个字符（字符常量）
+//    printf("打印有符号的十进制整数%d\n",a);  //%d适用于打印十进制整型
+//    printf("打印浮点数e记数法%e(小写)\n打印浮点数e记数法%E(大写)\n",f,g);     //%e/E适用于浮点数e记数法(科学记数法)200=2x10(2)=2e2
+//    printf("打印浮点数十进制记数法%f\n",f);       //%f适用于浮点数的十进制记数法
+//    printf("根据值的不同自动选择e/f,%g(小写)\n根据值的不同自动选择e/f,%G(大写)\n",g,g);   //%g/G会自适用，当使用%e格式时适用于指数小于-4或者大于或等于精度时
+//    printf("打印有符号的十进制整数：%i\n",a);     //%i适用于有符号的十进制整数
+//    printf("打印无符号的八进制整数%o\n",a);    //%o适用于打印八进制的整数
+//    printf("打印该变量在本系统的地址(指针):%p\n",y);     //%p适用于输出指针
+//    printf("打印无符号整数:%u\n",a);        //%u只能打印无符号整数，负数不可以
+//    printf("打印有符号的十六进制整数：%x(小写)\n打印有符号的十六进制整数：%X(大写)\n",a,a);      //%x/X适用于输出十六进制整数
+//    printf("输出一个百分号%%\n");
+//    /*转换说明修饰符*/
+//    printf("采用标记修饰符\n%-10d,% d,%0d,%#o\n",a,a,a,a,a);     //标记修饰符(+,-,#,0,空格)
+//    printf("采用数字修饰符:%3s\n",y);     //数字修饰符表示最小字段宽度，若不能容纳则自动扩增至要打印的字段宽度
+//    printf("采用.数字修饰符:\n%.3e(大写)，%.3E(大写)，%.3f\n",c,c,c);         //.数字修饰符表示精度，对于%e,%E,%f转换，表示小数点右边数字位数
+//    printf("采用.数字修饰符:\n%.3g(小写),%.3G(大写)\n",c,c);         //.数字修饰符表示精度，对于%g,%G转换,表示有效数字最大位数
+//    printf("采用.数字修饰符:\n%.5s\n",y);    //.数字修饰符表示精度，对于%s转换，表示待打印字符最大数量
+//    printf("采用.数字修饰符:\n%%.0f:%.0f和%%.f:%.f\n",d,d);    //.数字修饰符表示精度，只使用.表示其后跟随一个0，%.2f和%.02f一样
+//    printf("采用.数字修饰符:\n%%5.2f:%5.2f",d);               //%5.2f表示.前代表字段宽度，.后代表小数点后位数
+//    printf("采用%%hu/d/o/x修饰符：\n%hu,%hd,%ho,%hx\n",a,a,a,a);                   //常与整形搭配使用,表示short int/unsigned short int
+//    printf("采用%%hhu/d/o/x修饰符：\n%hhu,%hhd,%hho,%hhx\n",a,a,y,y);           //和整型转换说明一起使用，表示signed char/unsigned char
+//    printf("采用%%j/d/x/o修饰符：\n%j,%jd,%jx,%jo\n",o,o,o,o);            //搭配头文件<stdint.h>表示intmax_t或者uintmax_t类型的值
+//    printf("采用%%t修饰符：\n%td\n",a);        //表示两个指针的差值
+//    printf("采用%%z修饰符：\n%zd\n",a);        //表示size_t类型的值，是sizeof返回的类型
+//    printf("采用%%l修饰符：\n%ld,%lu\n",a,a);      //和整形转换一起使用，表示long int/unsigned long int
+//    printf("采用%%lld/u修饰符：\n%lld,%llu\n",a,a);    //和整形转换一起使用，表示long long int/unsigned long long int
+//    printf("采用%%L修饰符：\n%Lf\n%Le\n",p,p);         //和浮点转换一起使用，表示long double
+//    return 0;
+//}
+
+
+
+
+//scanf()输出函数的转换说明以及修饰符
+//#include "stdio.h"
+//#include <stdint.h>
+//int main(){
+//    char x,y[10];
+//    int a,b;
+//    intmax_t ta,tb;
+//    long int h;
+//    long long int k,l;
+//    short int ha,hb,hc,hd,he;
+//    float c,f;
+//    double e,d,j;
+//    printf("请输入字符x和字符串y：\n");
+//    scanf("%c%s",&x,y);     //%c将输入解释为字符，%s将输入解释为字符串
+//    printf("以%%c输出x：%c,以%%s输出y：%s\n",x,y);
+//    printf("请输入a,b：\n");
+//    scanf("%d%u",&a,&b);     //%d将输入解释为有符号的十进制整数，%u将输入解释为无符号的十进制整数
+//    printf("以有符号形式输出a：%d,以无符号形式输出b：%d\n",a,b);
+//    printf("请输入c,d,e,f：\n");
+//    scanf("%a%e%g%f",&c,&d,&e,&f); //%a/e/g/g将输入解释为浮点数（小写）
+//    printf("输出c:%a输出d：%e输出g：%g输出f：%f\n",c,d,e,f);
+//    printf("请输入c,d,e,f：\n");
+//    scanf("%A%E%G%F",&c,&d,&e,&f);  //%A/E/G/F将输入解释为浮点数（大写）
+//    printf("输出c:%A输出d：%E输出g：%G输出f：%F\n",c,d,e,f);
+//    printf("请输入b：\n");
+//    scanf("%i",&b);    //%i把输入解释为有符号的十进制整数
+//    printf("输出b：%i\n",b);
+//    printf("请输入a：\n");
+//    scanf("%o",&a);      //%o将输入解释为有符号的八进制整数
+//    printf("以八进制输出a：%o\n",a);
+//    printf("请输入b：\n");
+//    scanf("%p",&b);     //%p将输入解释为指针(地址)
+//    printf("输出b的地址(指针)：%p\n",b);
+//    printf("请输入a,b：\n");
+//    scanf("%x%X",&a,&b);     //%x/X将输入解释为有符号的十六进制整数
+//    printf("以有符号的十六进制整数输出a：%x,b：X\n",a,b);
+//    /*scanf()转换说明的修饰符*/
+//    printf("/*scanf()转换说明的修饰符*/\n输入a的值：");
+//    scanf("%*d",&a);     //%*d抑制赋值
+//    printf("使用%%*d输出%d：\n",a);
+//    printf("hh把整数作为signed char和unsigned char类型读取\n");
+//    scanf("%hhd%hhu",&a,&b);     //hh把整数作为signed char和unsigned char类型读取
+//    printf("使用%%hhd和%%hhu输出a的值：%hhd，b的值%hhu\n",a,b);
+//    printf("ll把整数作为long long 类型或者unsigned long long类型读取:\n");
+//    scanf("%lld%llu",&k,&l);        //ll把整数作为long long 类型或者unsigned long long类型读取
+//    printf("使用%%lld和%%llu输出j的值：%lld，输出l的值%llu",k,l);
+//    printf("使用h,l或L输出\n输入v,m的值");
+//    scanf("%hd%hi",&ha,&hb);    //以short int类型读取
+//    printf("使用%%hd输出v的值：%hd，输出m的值：%hi\n",ha,hb);
+//    printf("输入ha,hb,hc,hd,hc,he:\n");
+//    scanf("%hd%hi%hu%ho%hx",&ha,&hb,&hc,&hd,&he);      //%hd/i表明把输入储存为short int类型
+//    printf("使用%%ho输出ha的值：%hd,使用%%hb输出v的值：%hi，使用%%hu输出hc的值：%hu,使用%%ho输出hd的值%ho,使用%%hx输出hc的值%hx\n",ha,hb,hc,hd,he);
+//    printf("输入h的值：\n");
+//    scanf("%ld%li%lo%lx%lu",&h,&h,&h,&h,&h);
+//    printf("使用%%ld输出：%ld,使用%%li输出：%li，使用%%lo输出：%lo，使用%%lx输出：%lx，使用%%lu输出：%lu\n",h,h,h,h,h);
+//    printf("输入e/d/g：");
+//    scanf("%le%lf%lg",&e,&d,j);     //%le/f/g将输入存储为double类型
+//    printf("使用%%le输出：%le,使用%%lf输出：%lf，使用%%lg输出：%lg\n",e,d,j);
+//    /*在e,g,f前面使用L而不是l，表明把对应的值存储为long double类型，若没有修饰符，d、i、o、x都被存储为int类型，f和g表明存储为float类型*/
+//    printf("使用%%j类型：\n");
+//    scanf("%jd%ju",&ta,&tb);
+//    printf("以%%jd的形式输出a的值：%jd,以%%ju的形式输出b的s：%ju\n",ta,tb);
+//    printf("使用%%z类型\n");
+//    scanf("%zd%zo",&a,&b);
+//    printf("以sizeof返回类型输出：%zd，%zo\n",a,b);
+//    scanf("%td%tx",&a,&b);
+//    printf("输出两个指针的差值：%td，%tx\n",a,b);
+//    return 0;
+//}
+
+
+//4.8.2
+//#include "stdio.h"
+//int main(){
+//    char *name = "姓名";
+//    printf("\"name is: %s\"",name);     //打印name包括双引号
+//    printf("\n\"name is: %-10s\"",name);    //左对齐
+//    printf("\n\"name is: %10s\"",name);     //右对齐
+//    printf("\n\"name is: %.9s\"",name);
+//    return 0;
+//}
+
+
+//4.8.3读取一个浮点数，首先小数点计数法打印，然后以指数计数法打印
+//#include "stdio.h"
+//int main(){
+//    float member = 21.290000f;
+//    printf("The input is %.1f or %.1e\n",member,member);
+//    printf("The input is %+.3f or %.3E",member,member);
+//
+//
+//    return 0;
+//}
+
+
+//4.8.6输入姓名，输出字母数
+//#include "stdio.h"
+//#include "string.h"
+//int main(){
+//    char name[10];
+//    char xing[10];
+//    int x,y;
+//    scanf("%s%s",name,xing);
+//    x = strlen (name);
+//    y = strlen (xing);
+//    printf("%s %s\n",name,xing);
+//    printf("%*d %*d\n",x,x,y,y);
+//    printf("%s %s\n",name,xing);
+//    printf("%-*d %-*d",x,x,y,y);
+//
+//
+//    return 0;
+//}
