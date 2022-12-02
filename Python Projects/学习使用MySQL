@@ -1,5 +1,5 @@
 import pymysql
-db=pymysql.connect(host='localhost', user='root', password='1314521.', db='mrqi',charset='utf8')     #链接数据库
+db=pymysql.connect(host='localhost', user='root', password='   ', db='  ',charset='utf8')     #链接数据库
 cursor = db.cursor()           #获取游标
 cursor.execute("DROP TABLE IF EXISTS books")        #创建books表
 sql = """
