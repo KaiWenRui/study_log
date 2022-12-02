@@ -1,0 +1,34 @@
+//7.3iso646头文件使用
+//#include "stdio.h"
+//#include "iso646.h"
+//int main(){
+//    int a=1,b,c=2,d=1;
+//    scanf("%d",&b);
+//    if(a==1 and b==2)
+//        printf("666");
+//    return 0;
+//}
+//7.1ctype.h头文件的使用
+//#include "stdio.h"
+//#include "ctype.h"
+//#include "stdlib.h"
+//#include "string.h"
+//int main()
+//{
+//    char *ch=NULL;
+//    int p,i;
+//    ch = (char *) malloc(sizeof (ch));
+//    scanf("%s",ch);
+//    p= strlen(ch);
+//    for(i=0;i<p;i++)
+//    {
+//        if(isalpha(ch[i]))      //判断ch是否为字母,isalpha只能判断一个
+//            printf("ch");
+//    }
+//    return 0;
+//}
+
+
+
+
+
