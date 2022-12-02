@@ -1,0 +1,119 @@
+//#include <stdio.h>
+//int main(){
+//    int a[9] = {};         //定义数组
+//    char c[99];
+//    signed char biu[9];     //有符号类型字符串常量
+//    unsigned char bio[9];   //无符号类型字符串常量
+//    signed char x = -1;
+//    unsigned char y = -1;
+//    printf("有符号类型字符串变量处理小整数：%d\n",x);
+//    printf("无符号类型字符串变量处理小整数：%d\n",y);
+//    scanf("%s",c);
+//    scanf("%s",a);
+//    scanf("%s",biu);
+//    scanf("%s",bio);
+//    printf("有符号型字符串变量处理字符串：%s\n数组：%s\n",c,a);
+//    printf("有符号型字符串变量处理字符串：%s\n",biu);
+//    printf("无符号型字符串变量处理字符串：%s\n",bio);
+//
+//    return 0;
+//}
+//学习i++
+//#include <stdint.h>
+//#include <stdio.h>
+//int main(){
+//    int8_t x;
+//    x = 30;
+//    x++;
+//    printf("%d",x);
+//    return 0;
+//
+//
+//}
+//学习逗号运算符
+//#include <stdio.h>
+//int main(){
+//    int a,b,x,y;
+//
+//    x = 1;
+//    y = 9;
+//    a = (x++,++y);
+//    b = x;
+//    x++;
+//    printf("这是a:%d,这是b:%d，x的值为：%d",a,b,x);
+//
+//    return 0;
+//}
+//3.11.2 输入ascii码输出字符
+//#include <stdio.h>
+//int main(){
+//    int x;
+//
+//    printf("请输入一个数字：");
+//    scanf("%d",&x);
+//    printf("这个字符是：%c",x);
+//
+//    return 0;
+//}
+
+
+//3.11.3发出警报并输出文本
+//#include <stdio.h>
+//int main(){
+//
+//    printf("\a");
+//    printf("Startled by the sudden sound,Sally shouted,\n");
+//    printf("\"By the Great Pumpkin,what was that!\"");
+//
+//    return 0;
+//}
+//3.11.4读取浮点数，打印成小数
+//#include <stdio.h>
+//int main(){
+//    float x = 36.23546f;
+//
+//    printf("16进制指数形式：%a\n",x);
+//    printf("单精度浮点数类型：%f\n",x);
+//    printf("指数形式输出：%e\n",x);
+//    printf("两位小数:%.2f\n",x);
+//
+//    return 0;
+//}
+//3.11.5输入年龄，输出对应的秒数
+//#include <stdio.h>
+//int main(){
+//    int x;
+//    double y;
+//
+//    printf("请输入你的年龄:\n");
+//    scanf("%d",&x);
+//    y = x*365*24*3600;
+//    printf("有%e秒",y);
+//
+//    return 0;
+//}
+//3.11.8思考为何float更合适        q:当输入奇数时会出现舍去
+//#include <stdio.h>
+//int main(){
+//    int x,y;
+//    float a,b;
+//    printf("请输入杯数：");
+//    scanf("%d",&x);
+//    scanf("%f",&a);
+//    printf("转化整型品脱后：%d\n",x/2);
+//    printf("转化整型盅司后：%d\n",8*x);
+//    y = 8*x;
+//    printf("转化整型汤勺后：%d\n",y/2);
+//    printf("转化整型茶勺后：%d\n",3*y/2);
+//    printf("转化浮点品脱后：%f\n",a/2);
+//    printf("转化浮点盅司后：%f\n",a*8);
+//    b = a*8;
+//    printf("转化浮点汤勺后：%f\n",b/2);
+//    printf("转化浮点茶勺后：%f\n",3*b/2);
+//    return 0;
+//}
+
+
+
+
+
