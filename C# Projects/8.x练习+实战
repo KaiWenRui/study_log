@@ -1,0 +1,211 @@
+//8.4.1重定向
+//#include "stdio.h"
+//int main()
+//{
+//    printf("666");
+//    /*使用gcc -o 可执行文件名 c源文件 打包为可执行文件
+//     * 采用重定向在文件名目录下使用终端输入  可执行文件名 < 类txt文件
+//     * 可以将输入重定向至txt文件，txt文件内容输入至可执行文件 */
+//
+//    return 0;
+//}
+
+//8.4.4注释
+//#include "stdio.h"
+//#include "stdlib.h"     //为了使用exit()
+//int main()
+//{
+//    int ch;
+//    FILE * fp;
+//    char fname[50];   //储存文件名
+//
+//    printf("Enter the name of the file:\n");
+//    scanf("%s",fname);
+//    fp = fopen(fname,"r");    //读取待打开文件
+//    if(fp == NULL)       //如果读取失败
+//    {
+//        printf("Failed to open file.Bye\n");
+//        exit(1);      //退出程序
+//    }
+//    //getc(fp)从打开的文件中获取一个字符
+//    while((ch=getc(fp))!=-1)
+//    {
+//        putchar(ch);
+//    }
+//    fclose(fp);   //关闭文件
+//
+//    return 0;
+//}
+
+
+
+//8.6
+//#include <stdio.h>
+//void display(char cr,int lines,int width);
+//int main()
+//{
+//    int ch;        //待打印字符
+//    int rows,cols;   //行列
+//
+//    printf("Enter a character and two integers:\n");
+//    while ((ch=getchar())!='\n')
+//    {
+//        if(scanf("%d %d",&rows,&cols)!=2)
+//            break;
+//        display(ch,rows,cols);
+//        while(getchar()!='\n')
+//        {
+//            continue;
+//        }
+//        printf("Enter another character and two integers;\n");
+//        printf("Enter a newline to quit.\n");
+//    }
+//    printf("Bye\n");
+//
+//
+//
+//
+//
+//    return 0;
+//}
+//void display(char cr,int lines,int width)
+//{
+//    int row,col;
+//
+//    for(row=1;row<=lines;row++)
+//    {
+//        for(col=1;col<=width;col++)
+//            putchar(cr);
+//        putchar('\n');
+//    }
+//
+//}
+
+
+
+//8.5.1
+//#include "stdio.h"
+//int main()
+//{
+//    int guess = 1;
+//    char ch;
+//    printf("Pick an integer from 1 to 100.I will try guess");
+//    printf("it.\nRespond with a y if my guess is right and with");
+//    printf("\nan n if  it is  wrong ,\n");
+//    printf("Yh..is your number %d?\n",guess);
+//    while((ch=getchar())!='y')
+//    {
+//        if(ch=='n')
+//            printf("Well,then ,is it %d?\n",++guess);
+//        else
+//            printf("Please enter n or y\n");
+//        while(getchar()!='\n')
+//            continue;
+//    }
+//    printf("I knew I cloud do it!\n");
+//    return 0;
+//
+//
+//}
+
+
+//8.6
+//#include "stdio.h"
+//#include "ctype.h"
+//char get_first(void);
+//int main()
+//{
+//    int ch;
+//    ch = get_first();
+//    putchar(ch);
+//}
+//char get_first()
+//{
+//    int ch;
+//    ch  = getchar();
+//    while(isspace(getchar())==1)
+//        continue;
+//    return ch;
+//}
+
+
+//8.11.3实战练习        采用字符流输入统计大小写字母个数
+//#include "stdio.h"
+//#include "ctype.h"
+//int main()
+//{
+//    char ch;
+//    int up=0;
+//    int lower=0;
+//    while ((ch=getchar())!='\n')
+//    {
+//        if(isupper(ch))
+//        {
+//            up++;
+//        }
+//        if(islower(ch))
+//        {
+//            lower++;
+//        }
+//    }
+//    printf("%d %d",up,lower);
+//
+//}
+
+
+
+//8.11.6读取并返回第一个非空字符
+#include "stdio.h"
+//#include "ctype.h"
+//int get_first();
+//int main()
+//{
+//    char ch;
+//    ch = get_first();
+//    putchar(ch);
+//}
+//int get_first()
+//{
+//    char ch;
+//    while (isspace(ch=getchar())==1)
+//    {
+//        continue;
+//    }
+//    return ch;
+//}
+
+
+
+//8.11.7
+//#include "stdio.h"
+//int main()
+//{
+//    char c='*',h=' ',ch;
+//    int i,j,k;
+//    for(i=0;i<70;i++)
+//        printf("%c",c);
+//    printf("\n");
+//    printf("Enter the number corrsponding to the desired pay rate or action\n");
+//    printf("a) $8.75/hr");
+//    printf("%10cb) $9.33/hr\n",h);
+//    printf("c) $10.00/hr");
+//    printf("%10cd) $11.20/hr\n",h);
+//    printf("d)quit\n");
+//    for(i=0;i<70;i++)
+//        printf("%c",c);
+//    printf("\n");
+//    while ((ch=getchar())!='q')
+//        switch (ch)
+//        {
+//            case 'a':printf("$8.75/hr\n");break;
+//            case 'b':printf("$9.33/hr\n");break;
+//            case 'c':printf("$10.00/hr\n");break;
+//            case 'd':printf("$11.20/hr\n");break;
+//            default:
+//                break;
+//        }
+//    printf("The end");
+//}
+
+
+//
