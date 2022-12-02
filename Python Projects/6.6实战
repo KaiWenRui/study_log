@@ -1,0 +1,89 @@
+'''6.6.1'''
+def actor(name):               #定义actor函数和name参数
+    print('演员是'+name)        #打印结果
+name1 = input("导演选择的角色是：")    #接受控制台的输入
+actor(name1)
+
+
+'''6.6.2模拟美团外卖商家的套餐'''
+dic = {'考神套餐':'13元','单人套餐':'9.9元','情侣套餐':'20元'}
+print('本店套餐如下')
+for keys in dic.keys():
+    print(keys)
+for iteams in dic.items():
+    print(iteams)
+def food(package1,package2,package3):
+    print(package1+'13元')
+    print(package2+'9.9元')
+    print(package3+'20元')
+package1 = '考神套餐'
+package2 = '单人套餐'
+package3 = '情侣套餐'
+print('本店套餐如下','1.'+package1,'2.'+package2,'3.'+package3)
+food(package1,package2,package3)
+
+
+'''6.6.3根据出生日期判断星座'''
+month = input('输入月份：')
+month = int(month)
+day = input('输入日期：')
+day = int(day)
+if month == 3 and 21 <= day <= 31 or month == 4 and 1 <= day <= 20:
+    print('白羊座')
+elif month == 4 and 21 <= day <= 30 or month == 5 and 1 <= day <= 21:
+    print('金牛座')
+elif month == 5 and 21 <= day <= 31 or month == 6 and 1 <= day <= 21:
+    print('双子座')
+elif month == 6 and 22 <= day <= 30 or month == 7 and 1 <= day <= 22:
+    print('巨蟹座')
+elif month == 7 and 23 <= day <= 31 or month == 8 and 1 <= day <= 23:
+    print('狮子座')
+elif month == 8 and 24 <= day <= 31 or month == 9 and 1 <= day <= 23:
+    print('处女座')
+elif month == 9 and 24 <= day <= 30 or month == 10 and 1 <= day <= 23:
+    print('天秤座')
+elif month == 10 and 24 <= day <= 31 or month == 11 and 1 <= day <= 22:
+    print('天蝎座')
+elif month == 11 and 23 <= day <= 30 or month == 12 and 1 <= day <= 21:
+    print('射手座')
+elif month == 12 and 22 <= day <= 31 or month == 1 and 1 <= day <= 21:
+    print('魔羯座')
+elif month == 1 and 21 <= day <= 31 or month == 2 and 1 <= day <= 18:
+    print('水瓶座')
+elif month == 2 and 19 <= day <= 29 or month == 3 and 1 <= day <= 20:
+    print('双鱼座')
+
+
+'''书中写法'''
+#计算星座
+def Zodiac(month, day):
+    # 星座列表
+    n = ('摩羯座','水瓶座','双鱼座','白羊座','金牛座','双子座','巨蟹座','狮子座','处女座','天秤座','天蝎座','射手座','摩羯座')
+    # 月份类别
+    d = (20,19,21,20,21,22,23,23,23,24,23,22)
+    # 根据输入的月份返回星座
+    if day < d[month-1]:
+        return n[month-1]
+    else:
+        return n[month]
+month=input('请输入月份（例如：5）：')
+day=input('请输入日期（例如：17）：')
+# 输出星座
+print(str(month)+'月'+str(day)+'日'+'星座为：'+Zodiac(int(month),int(day)))
+
+
+'''6.6.4美元转换为人民币'''
+def sch(money):                            #定义sch函数
+    a = float(0.147)                       #定义汇率为双精度浮点数
+    c = money*a                            #使用money进行换算
+    c = float(c)                           #将返回的值转为双精度浮点数
+    return c                               #返回换算的值
+money = input('输入金额：')
+money = float(money)
+ee = sch(money)                            #利用变量调用sch函数
+print('换算成美元为'+str(ee))                #打印结果
+
+
+
+
+
