@@ -1,0 +1,165 @@
+//while 循环
+//#include "stdio.h"
+//#define ADJUST 7.31    //预处理声明ADJUST=7.31
+//int main()
+//{
+//    const double x = 0.333;      //const定义不可变变量
+//    double shoe,foot;
+//    printf("Shoe   size (men's)   foot length\n");
+//    shoe = 3.0;
+//    while (shoe < 18.5)
+//    {
+//        foot = x * shoe + ADJUST;
+//        printf("%10.1f %15.2f inches\n",shoe,foot);
+//        shoe++;
+//    }
+//    return 0;
+//}
+
+
+//sizeof运算符和size_t类型
+//#include "stdio.h"
+//int main()
+//{
+//    int n=0,rv;
+//    size_t intsize;     //定义intsize为size_t类型
+//    intsize = sizeof (int);      //计算int类型的大小bytes
+//    rv = printf("n = %d,n has %zd bytes; all ints have %zd bytes.\n",n,sizeof n,intsize);
+//    printf("%d",rv);        //使用printf输出字符数
+//    return 0;
+//}
+
+
+//求模运算符%
+//#include "stdio.h"
+//#define SEC_PER_MIN 60
+//int main()
+//{
+//    int sec,min,left;
+//    printf("Convert seconds to minutes and seconds! \n");
+//    printf("Enter the number of seconds (<=0 to quit): \n");
+//    scanf("%d",&sec);
+//    while (sec>0)
+//    {
+//        min = sec/SEC_PER_MIN;
+//        left = sec%SEC_PER_MIN;
+//        printf("%d seconds is %d minutes, %d seconds.\n",sec,min,left);
+//        printf("Enter next value (<=0 to quit): ");
+//        scanf("%d",&sec);
+//    }
+//    printf("Done!\n");
+//    return 0;
+//}
+
+
+//递增运算符：++
+//#include "stdio.h"
+//int main()
+//{
+//    int ultra=0,super=0;        //定义整型ultra,super
+//
+//    while(super++<5)
+//    {
+//        ++ultra;
+//        printf("super = %d,ultra = %d\n",super,ultra);
+//    }
+//    return 0;
+//}
+
+//递减运算--
+//#include "stdio.h"
+//int main()
+//{
+//    int x=15;
+//    while (x-->10)
+//    {
+//        printf("%d\n",x);
+//    }
+//    return 0;
+//}
+
+
+//5.6带参数的函数
+//#include "stdio.h"
+//void pound(int n);       //声明函数pound
+//int main(void)
+//{
+//    int times = 5;
+//    char ch = '!';
+//    float f = 6.0f;
+//
+//    pound(times+4);     //time+4为pound函数的实参
+//    pound(ch);
+//    pound(f);
+//
+//    return 0;
+//}
+//void pound(int n)      //函数pound体支,n为pound函数的形参
+//{
+//    while (n-- > 0)
+//        printf("#");
+//    printf("\n");
+//}
+
+
+//5.10.9
+//#include "stdio.h"
+//#define TEN 103      //累加后是104是g只需要到103
+//int main()
+//{
+//    int n = 96;          //使用96，在while循环的n++的时候已经加一了
+//    while (n++<TEN)
+//        printf("%5c",n);
+//    printf("\n");
+//    return 0;
+//}
+//5.11.7  计算立方
+//#include "stdio.h"
+//void sum(float x,float y);    //声明sum函数
+//int main()
+//{
+//    sum(9,0);           //调用sum函数
+//
+//}
+//
+//void  sum(float x,float y)      //定义sum函数
+//{
+//    y = x*x*x;
+//    printf("%f",y);
+//}
+
+//5。11.9
+//#include "stdio.h"
+//void Temperature();         //声明函数Temperature
+//int main()
+//{
+//
+//    Temperature();
+//    return 0;
+//
+//}
+//void Temperature ()        //定义函数Temperature
+//{
+//    double hstemperatures,sstemperature,kstemperature;
+//    const double st = 273.16;
+//    printf("输入华氏温度：");
+//    scanf("%lf",&hstemperatures);
+//    sstemperature = 5.0/9.0*(hstemperatures-32.0);
+//    kstemperature = sstemperature+st;
+//    printf("开氏温度：%lf\n摄氏温度：%lf",kstemperature,sstemperature);
+//
+//}
+
+//5.10.11
+//#define MESG "COMPUTER BYTES DOG"
+//#include "stdio.h"
+//int main()
+//{
+//    int n=0;
+//    while (n<5){
+//        printf("%s\n",MESG);
+//        n++;
+//    }
+//    printf("That's all.\n");
+//    return 0;
+//}
