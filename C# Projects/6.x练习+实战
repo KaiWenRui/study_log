@@ -1,0 +1,389 @@
+//6.2.4
+//#include "stdio.h"
+//int main(){
+//    int n =0;
+//    while (n++<3);
+//    printf("n is %d\n",n);
+//    printf("Taht's all this program doews.\n");
+//    return 0;
+//
+//}
+
+
+//浮点数比较
+//#include "stdio.h"
+//#include "math.h"
+//int main(){
+//    const double ANSWER  = 3.14159;
+//    double response;
+//    printf("What is the value of pi?\n");
+//    scanf("%lf",&response);
+//    while (fabs(response-ANSWER)>0.0001){      //调用fabs函数求浮点数绝对值
+//        printf("Try again!\n");
+//        scanf("%lf",&response);
+//    }
+//    printf("Close enough");
+//    return 0;
+//
+//}
+
+
+//c#中的真和假
+//#include "stdio.h"
+//int main(){
+//    int true_val,false_val;
+//    true_val = (10>2);      //true_val的值为10是否大于2的_bool变量
+//    printf("%d\n",true_val);
+//    false_val = (10==2);       //false_val的值为10是否大于2的_bool变量
+//    printf("%d",false_val);
+//}
+
+
+//6.7逗号运算符
+//#include "stdio.h"
+//int main()
+//{
+//    int x,y;
+//    x = (300,500);           //根据逗号运算符，x获得的是右边值
+//    printf("%d",x);
+//}
+
+
+//6.7.1当Zeno遇到for循环
+/*在进行复杂大的计算之前，先考虑在数学生是否有简单的方法可用*/
+
+
+//6.8出口循环do while
+//#include "stdio.h"
+//int main(){
+//    const int secret_code = 13;
+//    int code_entered;
+//    do{
+//        printf("To enter the triskaidekaphobia therapy club,\n");
+//        printf("Please enter the secret code number:");
+//        scanf("%d",&code_entered);
+//    } while (code_entered!=secret_code);
+//    printf("Congratulations! You are cured!\n");
+//
+//    return 0;
+//}
+
+
+//6.11.1数组的使用
+//#include "stdio.h"
+//#define SIZE 10
+//int main()
+//{
+//    int index,score[SIZE];
+//    int sum=0;
+//    float average;
+//    printf("Enter %d golf score\n",SIZE);
+//    for (index=0;index<SIZE;index++)
+//        scanf("%d",&score[index]);
+//    for (index= 0; index <SIZE ; index++)
+//        printf("%d ",score[index]);
+//    printf("\n");
+//    for (index = 0;index<SIZE;index++)
+//        sum += score[index];
+//    average = (float )sum/SIZE;
+//    printf("average is %f",average);
+//
+//    return 0;
+//
+//}
+
+
+
+//6.16.1     创建数组存放26个字母，依此输出
+//#include "stdio.h"
+//int main(){
+//    int index;
+//    char name[26];
+//    for(index=0;index<26;index++)
+//        scanf("%c ",&name[index]);
+//    for(index=0;index<26;index++)
+//        printf("%c ",name[index]);
+//
+//
+//    return 0;
+//}
+
+
+//6.16.2
+//#include "stdio.h"
+//int main()
+//{
+//    int a,b,c,d;
+//    for (a=1;a<=5;a++)
+//    {
+//        for(b=1;b<=a;b++)
+//            printf("$");
+//        printf("\n");
+//    }
+//    return 0;
+//}
+
+
+
+//6.16.3
+//#include "stdio.h"
+//int main(){
+//    int a=71,b,c,d;
+//    for (b=1;b<=6;b++){
+//        for(c=1;c<=b;c++)
+//            printf("%c",a-c);
+//        printf("\n");
+//    }
+//    return 0;
+//}
+
+
+
+//6.16.4
+//#include "stdio.h"
+//int main(){
+//    int a,b,c,d;
+//    char n = 'A';
+//    for(a=1;a<=6;a++){
+//        for(b=1;b<=a;b++)
+//            printf("%c",n++);
+//        printf("\n");}
+//}
+
+
+//6.16.5
+//#include "stdio.h"
+//int main(){
+//    int a,b,c,d=64,e,f;
+//    for (a=1;a<=5;a++)
+//    {
+//        for(f=5;f>=a;f--)
+//            printf(" ");
+//        for(b=1;b<a;b++)
+//        {
+//            printf("%c",d+b);
+//        }
+//        for(e=d+b;e>64;e--)
+//        {
+//            printf("%c",e);
+//        }
+//        printf("\n");
+//    }
+//}
+
+
+
+//6.16.6
+//#include <stdio.h>
+//
+//int main(void)
+//{
+//    int i, upper, lower;
+//    printf("请输入上限:");
+//    scanf("%d",&upper);
+//    printf("请输入下限:");
+//    scanf("%d",&lower);
+//
+//    printf("%-10s%-10s%-10s\n","原数","平方","立方");
+//    for(i=1;i>=lower&&i<=upper;i++){
+//        printf("%-7d%-7d%-7d\n",i,i*i,i*i*i);
+//    }
+//
+//    return 0;
+//}
+
+
+
+//6.16.7
+//#include "stdio.h"
+//#include "string.h"
+//#include "stdlib.h"
+//int main(){
+//    int index;
+//    char *name=NULL;
+//    name = (char *) malloc(sizeof(name));     //malloc函数返回动态指针使用方式(char *)malloc(sizeof(str))
+//    scanf("%s",name);
+//    index = strlen(name);
+//    for(index-=1;index>=0;index--)
+//    {
+//        printf("%c", name[index]);
+//    }
+//    return 0;
+//}
+
+
+//6.16.8
+//#include "stdio.h"
+//int main(){
+//    float a,b,c,d,sum;
+//    while (scanf("%f%f",&a,&b)){
+//        c = a*b;
+//        d = a-b;
+//        sum = c/d;
+//        printf("%f\n",sum);
+//    }
+//    return 0;
+//}
+
+
+
+//6.19.9
+//#include "stdio.h"
+//void function(float a,float b);
+//int main(){
+//
+//    function(2,1);
+//    return 0;
+//}
+//void function(float a,float b)
+//{
+//    float c,d,sum;
+//    c = a*b;
+//    d = a-b;
+//    sum = d/c;
+//    printf("%f",sum);
+//}
+
+
+
+//6.19.10
+//#include "stdio.h"
+//int main(){
+//    int a,b,c,d,sum=0;
+//    printf("Enter lower and upper integer limits:");
+//    scanf("%d%d",&b,&a);
+//    if(a>=b)
+//    {
+//        for(c=b;c<=a;c++)
+//        {
+//            d=c*c;
+//            sum = d+sum;
+//        }
+//        printf("The sum of the squares from%d to %d is %d",b,a,sum);
+//    }
+//    return 0;
+//}
+
+
+
+//6.16.11
+//法一：
+//#include "stdio.h"
+//#include "stdlib.h"
+//#include "string.h"
+//int main(){
+//    int index,p;
+//    char *name=NULL;
+//    name = (char *) malloc(sizeof (name));
+//    scanf("%s",name);
+//    p = strlen(name);
+//
+//    for(index=p-1;index>=0;index--)
+//    {
+//        printf("%c",name[index]);
+//    }
+//    return 0;
+//}
+//法二：
+//#include "stdio.h"
+//int main(){
+//    int index;
+//    int name[8];
+//
+//    for(index=0;index<=7;index++)
+//        scanf("%d",&name[index]);
+//    for(index=7;index>=0;index--)
+//        printf("%d ",name[index]);
+//
+//    return 0;
+//}
+
+
+
+//6.19.12
+//#include "stdio.h"
+//int main(){
+//    int a,b,d,g=1;
+//    double c,sum=1,e,f;
+//    for (a=1,b=2,d=1;a<b&&d<=100000;a++,b++,d++)
+//    {
+//        f = b;
+//        c = 1/f;
+//        sum +=c;
+//        printf("%f\n",sum);
+//    }
+//    return 0;
+//}
+//#include "stdio.h"
+//int main(){
+//    int a,b,c,d;
+//    double i=1.0;
+//    double y,z,sum=1.0;
+//    for(a=0,b=2;a<b;a++,b++){
+//        y = b;
+//        i=-1*i;
+//        z = i/y;
+//        sum = z+sum;
+//        printf("%lf\n",sum);}
+//
+//}
+
+
+//6.19.13
+//#include "stdio.h"
+//int main(){
+//    double a[8],b[8],c=0;
+//    int index;
+//    for(index=0;index<=7;index++)
+//        scanf("%lf",&a[index]);
+//    for(index=0;index<=7;index++)
+//    {
+//        c= c+a[index];
+//        b[index]=c;
+//        printf("%lf ",b[index]);
+//    }
+//
+//
+//}
+
+
+//6.19.17
+//#include "stdio.h"
+//int main(){
+//    int x=100,i,a=0,b;
+//    double n,m;
+//    for(i=1,b=0;i>b;b++,i++)
+//    {
+//        n = x*(1.08);
+//        m = n-10;
+//        if(m<=0)
+//        {
+//            printf("取完%d",i);
+//            break;
+//        }
+//        x=m;
+//
+//    }
+//    return 0;
+//}
+
+
+
+
+//6.19.18
+//#include "stdio.h"
+//int main(){
+//    int x=5,y,z,a,index;
+//    for(index=1,z=0;index>z;index++,z++)
+//    {
+//        a = x-index;
+//        y = 2*a;
+//        if(y>150)
+//        {
+//            printf("ok%d",index);
+//            break;
+//        }
+//        x = y;
+//    }
+//    return 0;
+//}
