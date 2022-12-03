@@ -1,0 +1,48 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service  # selenium函数新增
+from selenium.webdriver.common.by import By
+from aip import AipOcr
+
+service = Service(executable_path='/usr/local/bin/chromedriver')           #调用chromedriver组件
+result2 = webdriver.Chrome(service=service)
+bowser = webdriver.Chrome()
+
+
+# 获取验证码
+result2.get('教务网址')
+code = result2.find_element(By.ID, 'SafeCodeImg')
+code.screenshot('code.png')
+time.sleep(0.1)
+# 识别验证码
+'''appid ak sk'''
+APP_ID = '百度api的id'
+API_KEY = '百度api的KEY'
+SECRET_KEY = '百度api的密钥'
+client = AipOcr(APP_ID, API_KEY, SECRET_KEY)
+'''读取本地图片'''
+def get_file_content(filePath):
+    with open(filePath, 'rb') as fp:
+        return fp.read()
+image = get_file_content(r'code.png')
+'''调用识别'''
+result = client.basicGeneral(image)
+results = result['words_result']
+print(results)
+for i in results:
+    print(i)
+code = i['words']
+list1 = code.split(" ")
+code1 = "".join(list1)
+print(code1)
+# 调用selenium函数进行登录
+# 发送用户名和密码
+username = result2.find_element(By.ID, 'userAccount')
+username.send_keys('账号')
+password = result2.find_element(By.ID, 'userPassword')
+password.send_keys('密码')
+webcode = result2.find_element(By.ID, 'RANDOMCODE')
+webcode.send_keys(code1)
+# 按钮点击
+loginbuttom = result2.find_element(By.ID, 'btn-login')
+loginbuttom.click()
