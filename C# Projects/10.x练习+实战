@@ -427,3 +427,291 @@
 //    return tot;
 //}
 
+//#include "stdio.h"
+//int main()
+//{
+//    typedef int arr4[4];        //arr4是一个内含4个int的数组
+//    typedef arr4 arr3x4[3];   //arr3x4是一个内含3个arr4的数组
+//    int sum2(arr3x4 ar,int rows);      //435和436的声明形式相同
+//    int sum2_(int ar[3][4],int rows);
+//    int sum2_1(int ar[][4],int rows);     //标准形式
+//    /*声明一个指向N维数组的指针时，只能省略最左边方括号的值；第一对方括号表明这是一个指针，*/
+//    int sum4d(int ar[][10][20][30],int rows);
+//    int sum_4d(int (*ar)[10][20][30]);    //ar指向一个10x20x30的int数组
+//
+//    return 0;
+//}
+
+
+//10.8变长数组（VLA）
+//#include "stdio.h"
+//#define COLS 4
+//int sum2d(int ar[][COLS],int rows)
+//{
+//    int r,c,tot=0;
+//    for(r=0;r<rows;r++)
+//        for(c=0;c<COLS;c++)
+//            tot += ar[r][c];
+//    return tot;
+//}
+//int main()
+//{
+//    int ar[2][4]={{1,2,3,4},{8,5,6,7}},x;
+//    x = sum2d(ar,2);
+//    printf("%d",x);
+//
+//    return 0;
+//}
+
+
+//程序清单10.18变长数组的函数
+/*可变数组是指可以使用变量指定数组的纬度*/
+//#include "stdio.h"
+//#define ROWS 3
+//#define COLS 4
+//int sum2d(int rows,int cols,int ar[rows][cols]);
+//int main()
+//{
+//    int i,j;
+//    int rs = 3,cs = 10;
+//    int junk[ROWS][COLS]={{2,4,6,8},
+//                          {3,5,7,9},
+//                          {12,10,8,6}};
+//    int morejunk[ROWS-1][COLS+2]={{20,30,40,50,60,70},
+//                                  {5,6,7,8,9,10}};
+//    int varr[rs][cs];    //变长数组（VLA）
+//    for(i=0;i<rs;i++)
+//        for(j=0;j<cs;j++)
+//            varr[i][j]=i*j+j;
+//    printf("3x4 array\n");
+//    printf("Sum of all elements =%d\n",sum2d(ROWS,COLS,junk));
+//    printf("2x6 array\n");
+//    printf("Sum of all elements =%d\n",sum2d(ROWS-1,COLS+2,morejunk));
+//    printf("3x10 array\n");
+//    printf("Sum of all elements =%d\n",sum2d(rs,cs,varr));
+//
+//    return 0;
+//}
+//int sum2d(int rows,int cols,int ar[rows][cols])
+//{
+//    int r,c,tot=0;
+//    for(r=0;r<rows;r++)
+//        for(c=0;c<cols;c++)
+//            tot += ar[r][c];
+//    return tot;
+//}
+
+//#include "stdio.h"
+//void twoset(int n,int m,int ar[n][m])
+//{
+//    int temp[n][m];        //temp是一个n x m的数组
+//    temp[0][0]=2;
+//    ar[0][0]=2;     //设置thing[0][0]的值为2
+//}
+///*  ar和thing都是指向thing[0]的指针,ar[0][0]与thing[0][0]访问数据位置相同 */
+//int main()
+//{
+//    int thing[10][6];
+//    twoset(10,6,thing);
+//
+//    return 0;
+//}
+/* 1>数组大小可以是整形常量或者sizeof表达式或者其他不是const的内容
+ * 2>在变长数组中使用const时，数组的定义必须是声明在块中的自动存储类别数组
+ * 3>变长数组允许动态内存分配*/
+
+
+
+//10.9复合字面量
+/* 1>代表数组和结构内容的量
+ * 2>可以把复合字面量作为实际参数传递给带有匹配形式参数的函数
+ * 3>在进行参数传递的时候可以直接使用复合字面量不必先创建数组*/
+//#include "stdio.h"
+//int main()
+//{
+//    /*去掉声明数组时的数组名，留下的就是复合字面量的类别名*/
+//    int *pt1 = (int [2]){1,2};      //复合字面量是匿名的，所以必须在创建的时候就使用，否则无法调用
+//    int (*pt2)[4];
+//    pt2=(int [2][4]){{1,2,3,4},{5,6,7,8}};
+//
+//}
+
+
+
+//10.13编程练习
+//10.13.1 rian.c使用指针计算
+//#include <stdio.h>
+//#define MONTHS 12      //一年的月份数
+//#define YEARS 5   //年数
+//int main()
+//{
+//    const float rain[YEARS][MONTHS]={
+//            {4.3,4.3,4.3,3.0,2.0,1.2,0.2,0.2,0.4,2.4,3.5,5.6},
+//            {8.5,8.2,1.2,1.6,2.4,0.0,5.2,0.9,0.3,0.9,1.4,7.3},
+//            {9.1,8.5,6.7,4.3,2.1,0.8,0.2,0.2,1.1,2.3,6.1,8.4},
+//            {7.2,9.9,8.4,3.3,1.2,0.8,0.4,0.0,0.6,1.7,4.3,6.2},
+//            {7.6,5.6,3.8,2.8,3.8,0.2,0.0,0.0,0.0,1.3,2.6,5.2}};
+//    int year,month;
+//    float subtot,total;
+//    printf(" YEAR RAINFALL (inches)\n");
+//    for(year=0,total=0;year<YEARS;year++)
+//    {                    //每一年各月降水量总和
+//        for(month=0,subtot=0;month<MONTHS;month++)
+//        {
+//            subtot += *(*(rain+year)+month);
+//        }
+//        printf("%5d %15.1f\n",2010+year,subtot);
+//        total += subtot;     //5年内总量
+//    }
+//    printf("\nThe yearly average is %.1f inches.\n\n", total / YEARS);
+//    printf("MONTHLY AVERAGES:\n\n");
+//    printf(" Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep  Oct ");
+//    printf(" Nov  Dec\n");
+//
+//    for (month = 0; month < MONTHS; month++)
+//    {                    // 每个月，5年的总降水量
+//        for (year = 0, subtot = 0; year < YEARS; year++)
+//            subtot += *(*(rain+year)+month);
+//        printf("%4.1f ", subtot / YEARS);
+//    }
+//    printf("\n");
+//    return 0;
+//}
+
+
+//10.13.2三种方式复制数组
+//#include "stdio.h"
+//double copy_arr(double target1[],const double source[],int n);
+//double copy_ptr(double target2[],const double source[],int n);
+//double copy_ptrs(double target3[],const double source[],double *n);
+//int main()
+//{
+//    double source[5]={1.1,2.2,3.3,4.4,5.5};
+//    double target1[5];
+//    double target2[5];
+//    double target3[5];
+//    copy_arr(target1,source,5);
+//    copy_ptr(target2,source,5);
+//    copy_ptrs(target3,source,source+5);
+//}
+//double copy_arr(double target1[], const double source[], int n)
+//{
+//    int i,j,k;
+//    for (i = 0; i < n; i++)
+//        target1[i]=source[i];
+//    for (i = 0; i < n; i++)
+//        printf("%lf ",target1[i]);
+//    printf("\n");
+//}
+//double copy_ptr(double target2[],const double source[],int n)
+//{
+//    int i,j,k;
+//    for (i = 0; i < n; i++)
+//        *(target2+i)=*(source+i);
+//    for (i = 0; i < n; i++)
+//        printf("%lf ",target2[i]);
+//    printf("\n");
+//}
+//double copy_ptrs(double target3[],const double source[],double *n)
+//{
+//    int i,j,k;
+//    for (i = 0; i < (n-source); i++)
+//        *(target3+i)=*(source+i);
+//    for (i = 0; i < (n-source); i++)
+//        printf("%lf ",*(target3+i));
+//}
+
+
+//10.13.7拷贝二维数组
+//#include "stdio.h"
+//double copy_arr(double (*target1)[5],const double source[][5],int n,int m);
+//int main()
+//{
+//    double source[2][5]={{1.1,2.2,3.3,4.4,5.5},{2.0,3.0,4.0,5.0,6.0}};
+//    double (*target1)[5];
+//    copy_arr(&target1,source,2,5);
+//}
+//double copy_arr(double (*target1)[5], const double source[][5], int n,int m)
+//{
+//    int i,j;
+//    for (i = 0; i < n; i++)
+//        for (j = 0; j < m; j++)
+//            *(*(target1+i)+j)=*(*(source+i)+j);
+//    for (i = 0; i < n; i++)
+//    {
+//        for (j = 0; j < m; j++)
+//            printf("%lf ",*(*(target1+i)+j));
+//        printf("\n");
+//    }
+//
+//}
+
+
+//10.13.9拷贝double类型变长数组
+//#include "stdio.h"
+//double list1(int n,int m,double (* list1)[m],double list2[][5]);
+//int main()
+//{
+//    double list[3][5]={{1.0,2.0,3.0,4.0,5.0},
+//                       {6.0,7.0,8.0,9.0,10.0},
+//                       {11.0,12.0,13.0,14.0,15.0}};
+//    double (*list2)[5];
+//    list1(3,5,&list2,&list);
+//
+//}
+//double list1(int n,int m,double (* list1)[m],double list2[][5])
+//{
+//    int i,j;
+//    for(i=0;i<n;i++)
+//        for(j=0;j<m;j++)
+//            *(*(list1+i)+j)=*(*(list2+i)+j);
+//    for(i=0;i<n;i++)
+//    {
+//        for(j=0;j<m;j++)
+//            printf("%-6.2lf ",list1[i][j]);
+//        printf("\n");
+//    }
+//}
+
+
+//10.13.13完成任务
+//#include "stdio.h"
+//double avg(int n,int m,int list[][5]);
+//int main()
+//{
+//    int list[3][5]={{1,2,3,4,5},
+//                    {6,7,8,9,10},
+//                    {11,12,13,14,15}};
+//    int i,j,k;
+//    double s;
+//    k = list[1][1];
+//    for(i=0;i<3;i++)
+//    {
+//        for(j=0;j<5;j++)
+//        {
+//            if(list[i][j]>k)
+//                k=list[i][j];
+//        }
+//    }
+//    for(i=0;i<3;i++)
+//    {
+//        s=avg(3,5,&list[i]);
+//        printf("%lf\n",s);
+//    }
+//
+//}
+//double avg(int n,int m,int list[][5])
+//{
+//    int i,j,k,sum=0,sum1=0;
+//    double u;
+//    for(i=0;i<n;i++)
+//    {
+//        for(j=0;j<m;j++)
+//        {
+//            sum += list[i][j];
+//        }
+//        u = sum/m;
+//        return u;
+//    }
+//
+//}
